@@ -1,0 +1,24 @@
+[libdefaults]
+ default_realm = <%= node['sssd_ad']['realm'] %>
+ dns_lookup_realm = true
+ dns_lookup_kdc = true
+ ticket_lifetime = 24h
+ renew_lifetime = 7d
+ rdns = false
+ forwardable = yes
+ default_tgs_enctypes = rc4-hmac
+ default_tkt_enctypes = rc4-hmac
+ permitted_enctypes = rc4-hmac
+
+[realms]
+# Definir solo si el DNS no funciona bien
+#<%= node['sssd_ad']['realm'] %> = {
+# kdc = srv1.<%= node['sssd_ad']['domain'] %>
+# admin_server = srv1.<%= node['sssd_ad']['domain'] %>
+#}
+
+[domain_realm]
+# Definir solo si el DNS no funciona bien
+# .<%= node['sssd_ad']['domain'] %> = <%= node['sssd_ad']['realm'] %>
+# <%= node['sssd_ad']['domain'] %> = <%= node['sssd_ad']['realm'] %>
+
