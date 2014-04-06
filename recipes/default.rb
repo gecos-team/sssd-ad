@@ -58,9 +58,9 @@
     end
   end
 
-  if node['sssd_ad'].attribute?('smb_url')
-    remote_file "/etc/samba/smb.conf" do
-      source node['sssd_ad']['smb_url']
+  if node['sssd_ad'].attribute?('sssd_url')
+    remote_file "/etc/samba/sssd.conf" do
+      source node['sssd_ad']['sssd_url']
       owner 'root'
       group 'root'
       mode 00644
