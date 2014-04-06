@@ -39,6 +39,10 @@
       owner 'root'
       group 'root'
       mode 00644
+      variables(
+        :realm => node['sssd_ad']['realm'],
+        :domain => node['sssd_ad']['domain']
+      )
     end
   end
 
@@ -55,6 +59,10 @@
       owner 'root'
       group 'root'
       mode 00644
+      variables(
+        :workgroup => node['sssd_ad']['workgroup'],
+        :realm => node['sssd_ad']['realm']
+      )
     end
   end
 
@@ -71,6 +79,10 @@
       owner 'root'
       group 'root'
       mode 00600
+      variables(
+        :domain => node['sssd_ad']['domain']
+      )
+
     end
   end
 
@@ -82,8 +94,8 @@
       mode 00644
     end
   else
-    template '/usr/share/pam-configs/my_mkhomedir' do                                              
-      source 'my_mkhomedir.erb'                                                        
+    cookbook_file '/usr/share/pam-configs/my_mkhomedir' do                                              
+      source 'my_mkhomedir'                                                        
       owner 'root'                                                                 
       group 'root'                                                                 
       mode 00644                                                                   

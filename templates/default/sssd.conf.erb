@@ -1,6 +1,6 @@
 [sssd]
 config_file_version = 2
-domains = <%= node['sssd_ad']['domain'] %>
+domains = <%= @domain %>
 services = nss, pam
 debug_level = 0
 
@@ -8,7 +8,7 @@ debug_level = 0
 
 [pam]
 
-[domain/<%= node['sssd_ad']['domain'] %>]
+[domain/<%= @domain %>]
 # La enumeracion no está recomendada en entornos con muchos usuarios
 enumerate = false
 
