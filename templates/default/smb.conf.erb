@@ -1,9 +1,9 @@
 [global]
-   workgroup = <%= node['sssd_ad']['workgroup'] %>
+   workgroup = <%= @workgroup %>
    client signing = yes
    client use spnego = yes
    kerberos method = secrets and keytab
    log file = /var/log/samba/%m.log
-   realm = <%= node['sssd_ad']['realm'] %>
+   realm = <%= @realm %>
    security = ads
 

@@ -1,5 +1,5 @@
 [libdefaults]
- default_realm = <%= node['sssd_ad']['realm'] %>
+ default_realm = <%= @realm %>
  dns_lookup_realm = true
  dns_lookup_kdc = true
  ticket_lifetime = 24h
@@ -12,13 +12,13 @@
 
 [realms]
 # Definir solo si el DNS no funciona bien
-#<%= node['sssd_ad']['realm'] %> = {
-# kdc = srv1.<%= node['sssd_ad']['domain'] %>
-# admin_server = srv1.<%= node['sssd_ad']['domain'] %>
+#<%= @realm %> = {
+# kdc = srv1.<%= @domain %>
+# admin_server = srv1.<%= @domain %>
 #}
 
 [domain_realm]
 # Definir solo si el DNS no funciona bien
-# .<%= node['sssd_ad']['domain'] %> = <%= node['sssd_ad']['realm'] %>
-# <%= node['sssd_ad']['domain'] %> = <%= node['sssd_ad']['realm'] %>
+# .<%= @domain %> = <%= @realm %>
+# <%= @domain %> = <%= @realm %>
 
